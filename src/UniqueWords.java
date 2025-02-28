@@ -1,5 +1,13 @@
 import java.util.ArrayList;
 
+/* Project: Lab 1: UniqueWords
+* Class: UniqueWords.java
+* Author: Connor Fareth
+* Date: February 27, 2025
+* This program counts the unique values in a list.
+*/
+
+
 public class UniqueWords
 {
    /**
@@ -7,15 +15,23 @@ public class UniqueWords
 		@param list ArrayList of strings to be examined
 		@return number of unique strings in the list
    */
+	
    public static int countUnique(ArrayList<String> list)
    {
 	  int count = 0;
 	  
-      for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
-		 {
-			
-		 }
+      for (int i = 0; i < list.size(); i++) {
+          boolean counted = false;
+          for (int j = 0; j < list.size(); j++) { 
+        	  if (i < j) {
+                  if (list.get(i).equals(list.get(j))) {
+                      counted = true;
+                  }
+        	  }
+          }
+          if (!counted) {
+              count++;
+          }
       }
 	  return count;
    }
